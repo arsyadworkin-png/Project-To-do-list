@@ -1,65 +1,65 @@
 alert('Welcome to To-Do List Writed by arsyad')
 
-// 1. Mengambil elemen HTML yang diperlukan
+// 1. Taking essential element
 const inputBox = document.getElementById("input-box");
 const listContainer = document.getElementById("list-container");
 
-// 2. Fungsi untuk menambahkan tugas
+// 2. Add function
 function addTask() {
-    // Jika input kosong, tampilkan pesan alert
+    // If inbox is empty, show alert
     if(inputBox.value === ''){
         alert("You have to write something!");
     }
     else {
-        // Membuat elemen <li> (list item)
+        // add element <li> (list item)
         let li = document.createElement("li");
         
-        // Mengisi teks di dalam <li> dengan nilai dari input
+        // add text to <li> by value form input
         li.innerHTML = inputBox.value;
         
-        // Menambahkan <li> ke dalam <ul> (listContainer)
+        // add <li> into <ul> (listContainer)
         listContainer.appendChild(li);
 
-        // Membuat tombol hapus (span)
+        // add delete button (span)
         let span = document.createElement("span");
         span.innerHTML = "\u00d7"; // Simbol X
         li.appendChild(span);
     }
     
-    // Mengosongkan input setelah menambah tugas
+    // empty input after adding task
     inputBox.value = "";
     
-    // Menyimpan data (fitur tambahan opsional untuk pemula)
+    // save the data
     saveData();
 }
 
-// 3. Menambahkan event listener untuk klik pada list
-// Ini menggunakan "Event Delegation" agar bisa mengatur klik pada semua item baru maupun lama
+// 3. adding info listetner into list
+// is use "Event Delegation" so that you can manage clicks on all new and old items
 listContainer.addEventListener("click", function(e) {
     
-    // Jika yang diklik adalah elemen <li> (biasanya teks tugas)
+    // if whats clicked is an element <li> (usually tasks)
     if(e.target.tagName === "LI") {
-        e.target.classList.toggle("checked"); // Toggle kelas 'checked' (coret)
+        e.target.classList.toggle("checked"); // Toggle kelas 'checked' (crossed out)
         saveData();
     }
     
-    // Jika yang diklik adalah elemen <span> (tombol hapus)
+    // if whats clicked is an elemen <span> (delete button)
     else if(e.target.tagName === "SPAN") {
-        e.target.parentElement.remove(); // Hapus elemen <li> parent-nya
+        e.target.parentElement.remove(); // element <li> the-parent
         saveData();
     }
 }, false);
 
-// 4. FungsiEnter pada keyboard
-// Agar bisa menambah tugas hanya dengan menekan tombol Enter
+// 4. enterfuncion in keyboard
+// so that it can be added just by click enter
 inputBox.addEventListener("keypress", function(event) {
     if (event.key === "Enter") {
         addTask();
     }
 });
 
-// --- Fitur Penyimpanan Data (Local Storage) ---
-// Ini membuat tugas tidak hilang saat halaman di-refresh
+// --- saving data feature(Local Storage) ---
+// itll make task wont disappear after refreshing
 
 function saveData() {
     localStorage.setItem("data", listContainer.innerHTML);
@@ -69,5 +69,5 @@ function showTask() {
     listContainer.innerHTML = localStorage.getItem("data");
 }
 
-// Panggil fungsi ini saat halaman dibuka agar data sebelumnya muncul
+// call this function so previous task wil appears
 showTask();

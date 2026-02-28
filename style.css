@@ -1,4 +1,4 @@
-/* Reset dasar */
+/* Basic reset */
 * {
     margin: 0;
     padding: 0;
@@ -75,7 +75,7 @@ ul li {
     border-bottom: 1px solid #eee;
 }
 
-/* Membuat lingkaran di depan teks */
+/* Make unchecked symbol*/
 ul li::before {
     content: '';
     position: absolute;
@@ -90,7 +90,7 @@ ul li::before {
     opacity: 0.6;
 }
 
-/* Gaya jika tugas sudah selesai (dicentang) */
+/* font style after checked */
 ul li.checked {
     color: #555;
     text-decoration: line-through;
