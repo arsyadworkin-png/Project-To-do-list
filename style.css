@@ -82,7 +82,7 @@ ul li::before {
     height: 24px;
     width: 24px;
     border-radius: 50%;
-    background-image: url(https://img.icons8.com/material-outlined/24/000000/unchecked-circle.png);
+    background-image: url(unchecked-circle.png);
     background-size: cover;
     background-position: center;
     top: 12px;
@@ -97,11 +97,11 @@ ul li.checked {
 }
 
 ul li.checked::before {
-    background-image: url(https://img.icons8.com/material-sharp/24/00000/checked-checkbox.png);
+    background-image: url(checked-checkbox.png);
     opacity: 1;
 }
 
-/* Tombol hapus (x) di kanan */
+/* Delete button */
 ul li span {
     position: absolute;
     right: 0;
