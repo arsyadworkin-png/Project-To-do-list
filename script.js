@@ -1,3 +1,5 @@
+alert('Welcome to To-Do List Writed by arsyad')
+
 // 1. Mengambil elemen HTML yang diperlukan
 const inputBox = document.getElementById("input-box");
 const listContainer = document.getElementById("list-container");
